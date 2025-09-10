@@ -19,11 +19,11 @@ export function StateScreen() {
 
   return (
     <ImageBackground source={background} resizeMode='cover' style={MainStyles.background}>
-      <Text>State Screen</Text>
       <TodoList
         todos={todos}
         updateTodos={updateTodos}
         clearTodos={clearTodos}
+        storageKey={'state-todos'}
       />
     </ImageBackground>
   );

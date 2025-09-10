@@ -18,7 +18,7 @@ export function HomeScreen() {
         <Text style={HomeStyles.text}>
           This is a basic todo list app to experiment with different state management solutions
         </Text>
-        <Text style={[HomeStyles.text, {marginTop: 15}]}>
+        <Text style={[HomeStyles.text, HomeStyles.textBtnSpacing]}>
           Please click a link below to continue
         </Text>
         <View style={HomeStyles.buttonView}>
