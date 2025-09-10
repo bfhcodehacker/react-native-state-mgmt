@@ -9,7 +9,11 @@ export function HomeScreen() {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>();
 
   const goToStateScreen = () => {
-    navigation.navigate('State')
+    navigation.navigate('State');
+  };
+
+  const goToZustandScreen = () => {
+    navigation.navigate('Zustand');
   };
 
   return (
@@ -27,6 +31,14 @@ export function HomeScreen() {
             style={HomeStyles.button}
           >
             <Text style={HomeStyles.buttonText}>useState</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={HomeStyles.buttonView}>
+          <TouchableOpacity
+            onPress={goToZustandScreen}
+            style={HomeStyles.button}
+          >
+            <Text style={HomeStyles.buttonText}>Zustand</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
