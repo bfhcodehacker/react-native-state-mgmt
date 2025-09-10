@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 
 export const HomeStyles = StyleSheet.create({
   title: {
-    marginTop: '30%',
+    marginTop: '40%',
     marginBottom: 20,
     fontSize: 20
   },
@@ -10,6 +10,10 @@ export const HomeStyles = StyleSheet.create({
     fontSize: 16,
     paddingHorizontal: 40,
     textAlign: 'center'
+  },
+  textBtnSpacing: {
+    marginTop: 15,
+    marginBottom: 40
   },
   buttonView: {
     marginTop: 30,

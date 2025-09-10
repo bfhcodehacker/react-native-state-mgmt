@@ -15,13 +15,16 @@ const RootStack = createNativeStackNavigator({
     Home: {
       screen: HomeScreen,
       options: {
-        title: 'Introduction'
+        headerShown: false
       }
     },
     State: {
       screen: StateScreen,
       options: {
-        title: 'State Test'
+        title: 'useState',
+        headerStyle: {
+          backgroundColor: '#F8C8DC'
+        }
       }
     }
   },
