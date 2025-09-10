@@ -5,6 +5,7 @@ import type { StaticParamList } from '@react-navigation/native';
 
 import { HomeScreen } from './src/screens/Home';
 import { StateScreen } from './src/screens/State';
+import { ZustandScreen } from './src/screens/Zustand';
 
 const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
@@ -24,6 +25,15 @@ const RootStack = createNativeStackNavigator({
         title: 'useState',
         headerStyle: {
           backgroundColor: '#F8C8DC'
+        }
+      }
+    },
+    Zustand: {
+      screen: ZustandScreen,
+      options: {
+        title: 'Zustand',
+        headerStyle: {
+          backgroundColor: '#48bfeeff'
         }
       }
     }

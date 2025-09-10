@@ -83,7 +83,7 @@ export const TodoList: FC<TodoListProps> = props => {
   }
 
   const clearAllTodos = () => {
-    props.updateTodos([]);
+    props.clearTodos();
     saveTodos([]);
   }
 
