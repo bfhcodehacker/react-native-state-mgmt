@@ -1,0 +1,22 @@
+{
+  "translation": {
+    "home": {
+      "welcome": "Bienvenido a mi aplicación de gestión estatal!",
+      "description": "Esta es una aplicación básica de lista de tareas para experimentar con diferentes soluciones de gestión de estados.",
+      "pleaseClick": "Haga clic en el enlace a continuación para continuar."
+    },
+    "todo": {
+      "title": "Lista de tareas pendientes",
+      "placeholder": "Introduce algo que hacer",
+      "save": "Guardar todo",
+      "clear": "Borrar texto",
+      "clearAll": "Borrar todos",
+      "nothingToDo": "Actualmente no tienes nada que hacer!"
+    },
+    "todoItem": {
+      "complete": "Completar todo!",
+      "reopen": "Reabrir todo",
+      "delete": "Borrar"
+    }
+  }
+}

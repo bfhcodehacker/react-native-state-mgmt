@@ -5,6 +5,8 @@ import { TodoType } from '../types/TodoTypes';
 import { TodoStyles } from '../styles/TodoList';
 import { MainStyles } from '../styles/MainStyles';
 import { TodoListItem } from './TodoListItem';
+import { useLanguageContext } from '../context/language-context';
+import { useTranslation } from 'react-i18next';
 
 interface TodoListProps {
   todos: TodoType[];
@@ -17,6 +19,8 @@ interface TodoListProps {
 }
 
 export const ReduxTodoList: FC<TodoListProps> = props => {
+  const { lang } = useLanguageContext();
+  const {t} = useTranslation('translation', {lng: lang, keyPrefix: 'todo'});
   const [todoText, setTodoText] = useState('');
 
   const fetchSavedTodos = async () => {
@@ -96,10 +100,10 @@ export const ReduxTodoList: FC<TodoListProps> = props => {
   return (
     <View style={TodoStyles.outerBox}>
       <View style={TodoStyles.mainBox}>
-        <Text style={TodoStyles.title}>Todo List</Text>
+        <Text style={TodoStyles.title}>{t('title')}</Text>
         <TextInput
           maxLength={50}
-          placeholder='Enter something to do'
+          placeholder={t('placeholder')}
           onChangeText={updateText}
           value={todoText}
           style={TodoStyles.textInput}
@@ -109,18 +113,18 @@ export const ReduxTodoList: FC<TodoListProps> = props => {
             onPress={saveTodo}
             style={MainStyles.saveBtn}
           >
-            <Text style={MainStyles.saveBtnText}>Save Todo</Text>
+            <Text style={MainStyles.saveBtnText}>{t('save')}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={clearTodo}
             style={MainStyles.clearBtn}
           >
-            <Text style={MainStyles.clearBtnText}>Clear Text</Text>
+            <Text style={MainStyles.clearBtnText}>{t('clear')}</Text>
           </TouchableOpacity>
         </View>
       </View>
       {!props.todos.length ? (
-        <Text style={TodoStyles.noTodos}>You currently have nothing to do!</Text>
+        <Text style={TodoStyles.noTodos}>{t('nothingToDo')}</Text>
       ) : (
         <View style={TodoStyles.todoList}>
           <FlatList
@@ -136,7 +140,7 @@ export const ReduxTodoList: FC<TodoListProps> = props => {
             onPress={clearAllTodos}
             style={MainStyles.clearBtn}
           >
-            <Text style={MainStyles.clearBtnText}>Clear All Todos</Text>
+            <Text style={MainStyles.clearBtnText}>{t('clearAll')}</Text>
           </TouchableOpacity>
         </View>
       )}
