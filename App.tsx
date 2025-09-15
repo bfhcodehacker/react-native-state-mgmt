@@ -12,6 +12,7 @@ import { ZustandScreen } from './src/screens/Zustand';
 import { ReduxScreen } from './src/screens/Redux';
 
 import { languages, LanguageContext } from './src/context/language-context';
+import { MobXScreen } from './src/screens/MobX';
 
 const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
@@ -49,6 +50,15 @@ const RootStack = createNativeStackNavigator({
         title: 'Redux tk',
         headerStyle: {
           backgroundColor: '#3568b9'
+        }
+      }
+    },
+    MobX: {
+      screen: MobXScreen,
+      options: {
+        title: 'MobX',
+        headerStyle: {
+          backgroundColor: '#35bbd8'
         }
       }
     }
