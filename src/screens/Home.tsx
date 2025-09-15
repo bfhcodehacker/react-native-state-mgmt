@@ -16,6 +16,10 @@ export function HomeScreen() {
     navigation.navigate('Zustand');
   };
 
+  const goToReduxScreen = () => {
+    navigation.navigate('Redux');
+  }
+
   return (
       <ImageBackground source={background} resizeMode='cover' style={MainStyles.background}>
         <Text style={HomeStyles.title}>Welcome to my State Management App!</Text>
@@ -41,7 +45,14 @@ export function HomeScreen() {
             <Text style={HomeStyles.buttonText}>Zustand</Text>
           </TouchableOpacity>
         </View>
+        <View style={HomeStyles.buttonView}>
+          <TouchableOpacity
+            onPress={goToReduxScreen}
+            style={HomeStyles.button}
+          >
+            <Text style={HomeStyles.buttonText}>Redux tk</Text>
+          </TouchableOpacity>
+        </View>
       </ImageBackground>
-    
   );
 }

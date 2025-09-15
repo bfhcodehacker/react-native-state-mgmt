@@ -2,10 +2,14 @@ import * as React from 'react';
 import { createStaticNavigation } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import type { StaticParamList } from '@react-navigation/native';
+import { Provider } from 'react-redux';
+
+import { reduxStore } from './src/stores/reduxStore';
 
 import { HomeScreen } from './src/screens/Home';
 import { StateScreen } from './src/screens/State';
 import { ZustandScreen } from './src/screens/Zustand';
+import { ReduxScreen } from './src/screens/Redux';
 
 const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
@@ -24,7 +28,7 @@ const RootStack = createNativeStackNavigator({
       options: {
         title: 'useState',
         headerStyle: {
-          backgroundColor: '#F8C8DC'
+          backgroundColor: '#ffbcd5'
         }
       }
     },
@@ -33,7 +37,16 @@ const RootStack = createNativeStackNavigator({
       options: {
         title: 'Zustand',
         headerStyle: {
-          backgroundColor: '#48bfeeff'
+          backgroundColor: '#83c0ff'
+        }
+      }
+    },
+    Redux: {
+      screen: ReduxScreen,
+      options: {
+        title: 'Redux tk',
+        headerStyle: {
+          backgroundColor: '#3568b9'
         }
       }
     }
@@ -45,5 +58,9 @@ const Navigation = createStaticNavigation(RootStack);
 export type RootStackParamList = StaticParamList<typeof RootStack>;
 
 export default function App() {
-  return <Navigation />;
+  return (
+    <Provider store={reduxStore}>
+      <Navigation />
+    </Provider>
+  );
 }

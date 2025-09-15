@@ -1,7 +1,7 @@
 import { ImageBackground } from 'react-native';
 import { MainStyles } from '../styles/MainStyles';
 import { TodoList } from '../components/TodoList';
-import useTodoStore from '../stores/todoStore';
+import useTodoStore from '../stores/zustandStore';
 import { TodoType } from '../types/TodoTypes';
 
 const background = require('../assets/backgrounds/cute-clouds.jpg');
