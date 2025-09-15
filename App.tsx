@@ -11,6 +11,8 @@ import { StateScreen } from './src/screens/State';
 import { ZustandScreen } from './src/screens/Zustand';
 import { ReduxScreen } from './src/screens/Redux';
 
+import { languages, LanguageContext } from './src/context/language-context';
+
 const RootStack = createNativeStackNavigator({
   initialRouteName: 'Home',
   screenOptions: {
@@ -58,9 +60,17 @@ const Navigation = createStaticNavigation(RootStack);
 export type RootStackParamList = StaticParamList<typeof RootStack>;
 
 export default function App() {
+  const [ lang, setLanguage ] = React.useState<string>(languages.en);
+
+  const toggleLanguage = () => {
+    setLanguage(lang === languages.en ? languages.es : languages.en);
+  }
+
   return (
-    <Provider store={reduxStore}>
-      <Navigation />
-    </Provider>
+    <LanguageContext.Provider value={{ lang, toggleLanguage }}>
+      <Provider store={reduxStore}>
+        <Navigation />
+      </Provider>
+    </LanguageContext.Provider>
   );
 }

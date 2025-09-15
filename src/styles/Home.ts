@@ -1,10 +1,19 @@
 import { StyleSheet } from "react-native";
 
 export const HomeStyles = StyleSheet.create({
+  main: {
+    width: '100%',
+    alignItems: 'center'
+  },
+  background: {
+    justifyContent: 'space-between'
+  },
   title: {
     marginTop: '40%',
     marginBottom: 20,
-    fontSize: 20
+    fontSize: 20,
+    textAlign: 'center',
+    paddingHorizontal: 20
   },
   text: {
     fontSize: 16,
@@ -34,5 +43,8 @@ export const HomeStyles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  languageBox: {
+    
   }
 });

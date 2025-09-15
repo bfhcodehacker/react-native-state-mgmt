@@ -21,7 +21,8 @@ export const TodoStyles = StyleSheet.create({
   title: {
     fontSize: 28,
     marginVertical: 30,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    textAlign: 'center'
   },
   textInput: {
     borderWidth: 1,

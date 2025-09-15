@@ -1,0 +1,22 @@
+{
+  "translation": {
+    "home": {
+      "welcome": "Welcome to my State Management App!",
+      "description": "This is a basic todo list app to experiment with different state management solutions",
+      "pleaseClick": "Please click a link below to continue"
+    },
+    "todo": {
+      "title": "Todo List",
+      "placeholder": "Enter something to do",
+      "save": "Save Todo",
+      "clear": "Clear Text",
+      "clearAll": "Clear All Todos",
+      "nothingToDo": "You currently have nothing to do!"
+    },
+    "todoItem": {
+      "complete": "Complete Todo!",
+      "reopen": "Reopen Todo",
+      "delete": "Delete"
+    }
+  }
+}
