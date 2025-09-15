@@ -8,7 +8,7 @@ interface TodoState {
 }
 
 const useTodoStore = create<TodoState>((set) => ({
-  todos: [{id: '21', text: 'initial todo', completed: false}],
+  todos: [],
   setTodos: (todos) => set(() => ({ todos: todos })),
   resetTodos: () => set({ todos: [] })
 }));
