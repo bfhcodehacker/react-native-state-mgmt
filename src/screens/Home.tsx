@@ -72,7 +72,7 @@ export function HomeScreen() {
               onPress={goToMobXScreen}
               style={HomeStyles.button}
             >
-              <Text style={HomeStyles.buttonText}>MobX</Text>
+              <Text style={HomeStyles.buttonText}>MobX State Tree</Text>
             </TouchableOpacity>
           </View>
         </View>

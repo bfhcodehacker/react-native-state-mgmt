@@ -56,7 +56,7 @@ const RootStack = createNativeStackNavigator({
     MobX: {
       screen: MobXScreen,
       options: {
-        title: 'MobX',
+        title: 'MobX State Tree',
         headerStyle: {
           backgroundColor: '#35bbd8'
         }
