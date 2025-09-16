@@ -27,6 +27,10 @@ export function HomeScreen() {
     navigation.navigate('Redux');
   }
 
+  const goToMobXScreen = () => {
+    navigation.navigate('MobX');
+  }
+
   return (
       <ImageBackground
         source={background}
@@ -61,6 +65,14 @@ export function HomeScreen() {
               style={HomeStyles.button}
             >
               <Text style={HomeStyles.buttonText}>Redux tk</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={HomeStyles.buttonView}>
+            <TouchableOpacity
+              onPress={goToMobXScreen}
+              style={HomeStyles.button}
+            >
+              <Text style={HomeStyles.buttonText}>MobX State Tree</Text>
             </TouchableOpacity>
           </View>
         </View>

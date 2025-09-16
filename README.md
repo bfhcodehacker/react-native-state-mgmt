@@ -18,3 +18,7 @@ having only used old Redux previously, Redux toolkit is a nice upgrade. it simpl
 ## useContext
 
 this is essentially keeping state at the App level and then being able to import it elsewhere to avoid prop drilling. it feels like it would be useful on a simpler app, but if you are already using a state management package like redux or zustand, it would be better to keep the data there.
+
+## MobX State Tree
+
+Mobx State Tree feels like a different direction from the previous state management packages. It seems more object oriented and has its own api, which increases the learning curve in my opinion.
