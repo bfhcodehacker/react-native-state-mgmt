@@ -11,6 +11,9 @@ import { useTranslation } from 'react-i18next';
 interface TodoListProps {
   todos: TodoType[];
   updateTodos: (todos: TodoType[]) => void;
+  addTodo: (todo: TodoType) => void;
+  deleteTodo: (id: string) => void;
+  toggleTodo: (id: string) => void;
   clearTodos: () => void;
   storageKey: string;
 }
@@ -61,28 +64,21 @@ export const TodoList: FC<TodoListProps> = props => {
       text: todoText,
       completed: false
     };
+    props.addTodo(newTodo);
     const updatedTodos = [...props.todos, newTodo];
-    props.updateTodos(updatedTodos);
     saveTodos(updatedTodos);
     clearTodo();
   }
 
   const toggleTodoCheck = (toggleTodo: TodoType) => {
-    const newTodos = [...props.todos];
-    newTodos.forEach(nTodo => {
-      if (nTodo.id === toggleTodo.id) {
-        nTodo.completed = !toggleTodo.completed;
-      }
-    });
-    props.updateTodos(newTodos);
-    saveTodos(newTodos);
+    props.toggleTodo(toggleTodo.id);
   }
 
   const deleteTodo = (deleteTodo: TodoType) => {
     const newTodos = props.todos.filter(nTodo => {
       return nTodo.id !== deleteTodo.id;
     });
-    props.updateTodos(newTodos);
+    props.deleteTodo(deleteTodo.id);
     saveTodos(newTodos);
   }
 

@@ -15,7 +15,26 @@ export function StateScreen() {
 
   const clearTodos = () => {
     setTodos([]);
-  }
+  };
+
+  const toggleTodo = (id: string) => {
+    const toggledTodos = todos.map(ntodo => {
+      if (ntodo.id === id) {
+        ntodo.completed = !ntodo.completed;
+      }
+      return ntodo;
+    });
+    setTodos(toggledTodos);
+  };
+
+  const deleteTodo = (id: string) => {
+    const newTodos = todos.filter(todo => todo.id !== id);
+    setTodos(newTodos);
+  };
+
+  const addTodo = (newTodo: TodoType) => {
+    setTodos([...todos, newTodo]);
+  };
 
   return (
     <ImageBackground source={background} resizeMode='cover' style={MainStyles.background}>
@@ -23,6 +42,9 @@ export function StateScreen() {
         todos={todos}
         updateTodos={updateTodos}
         clearTodos={clearTodos}
+        addTodo={addTodo}
+        deleteTodo={deleteTodo}
+        toggleTodo={toggleTodo}
         storageKey={'state-todos'}
       />
     </ImageBackground>

@@ -10,6 +10,9 @@ export function ZustandScreen() {
   const todos = useTodoStore((state) => state.todos);
   const updateTodos = useTodoStore((state) => state.setTodos);
   const clearTodos = useTodoStore((state) => state.resetTodos);
+  const toggleTodo = useTodoStore((state) => state.toggleTodo);
+  const addTodo = useTodoStore((state) => state.addTodo);
+  const deleteTodo = useTodoStore((state) => state.deleteTodo);
 
   const saveTodos = (todos: TodoType[]) => {
     updateTodos(todos);
@@ -21,6 +24,9 @@ export function ZustandScreen() {
         todos={todos}
         updateTodos={saveTodos}
         clearTodos={clearTodos}
+        addTodo={addTodo}
+        toggleTodo={toggleTodo}
+        deleteTodo={deleteTodo}
         storageKey={'zustand-todos'}
       />
     </ImageBackground>
