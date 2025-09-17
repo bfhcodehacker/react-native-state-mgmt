@@ -11,7 +11,10 @@
       "save": "Save Todo",
       "clear": "Clear Text",
       "clearAll": "Clear All Todos",
-      "nothingToDo": "You currently have nothing to do!"
+      "nothingToDo": "You currently have nothing to do!",
+      "areYouSure": "Are you sure you want to clear all Todos?",
+      "clearTodos": "Clear Todos",
+      "cancel": "Cancel"
     },
     "todoItem": {
       "complete": "Complete Todo!",
