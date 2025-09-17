@@ -1,7 +1,7 @@
 import { ImageBackground } from "react-native";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { MainStyles } from "../styles/MainStyles";
-import { ReduxTodoList } from "../components/ReduxTodoList";
+import { TodoList } from "../components/TodoList";
 import { TodoType } from "../types/TodoTypes";
 import {
   addTodo,
@@ -39,7 +39,7 @@ export function ReduxScreen() {
       resizeMode={'cover'}
       style={MainStyles.background}
     >
-      <ReduxTodoList
+      <TodoList
         storageKey='redux-todos'
         todos={todos}
         updateTodos={updateTodos}
