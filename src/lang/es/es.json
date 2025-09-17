@@ -11,7 +11,10 @@
       "save": "Guardar todo",
       "clear": "Borrar texto",
       "clearAll": "Borrar todos",
-      "nothingToDo": "Actualmente no tienes nada que hacer!"
+      "nothingToDo": "Actualmente no tienes nada que hacer!",
+      "areYouSure": "¿Estás seguro de que quieres borrar todos?",
+      "clearTodos": "Borrar todos",
+      "cancel": "Cancelar"
     },
     "todoItem": {
       "complete": "Completar todo!",
