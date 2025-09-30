@@ -1,17 +1,17 @@
 import { FC, useState, useEffect } from 'react';
 import { FlatList, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { TodoType } from '../types/TodoTypes';
 import { TodoStyles } from '../styles/TodoList';
 import { MainStyles } from '../styles/MainStyles';
 import { TodoListItem } from './TodoListItem';
 import { useLanguageContext } from '../context/language-context';
 import { useTranslation } from 'react-i18next';
+import { fetchSavedTodos, saveTodos } from '../lib/todoHelper';
 
 interface TodoListProps {
   todos: TodoType[];
   updateTodos: (todos: TodoType[]) => void;
-  addTodo: (todo: TodoType) => void;
+  addTodo: (todoText: string) => void;
   deleteTodo: (id: string) => void;
   toggleTodo: (id: string) => void;
   clearTodos: () => void;
@@ -24,32 +24,20 @@ export const TodoList: FC<TodoListProps> = props => {
   const [todoText, setTodoText] = useState('');
   const [showModal, setShowModal] = useState(false);
 
-  const fetchSavedTodos = async () => {
-    try {
-      const oldTodos = await AsyncStorage.getItem(props.storageKey);
-      if (oldTodos !== null) {
-        const parsedTodos = JSON.parse(oldTodos);
-        if (parsedTodos?.length) {
-          props.updateTodos(parsedTodos);
-        }
-      }
-    } catch (e) {
-      console.error('error fetch saved todos')
-    }
-  }
-
-  const saveTodos = async (saveTodos: TodoType[]) => {
-    try {
-      const jsonValue = JSON.stringify(saveTodos);
-      await AsyncStorage.setItem(props.storageKey, jsonValue);
-    } catch (e) {
-      console.warn('error saving todos to async storage');
+  const fetchTodos = async () => {
+    const todos = await fetchSavedTodos(props.storageKey);
+    if (todos.length) {
+      props.updateTodos(todos);
     }
   }
 
   useEffect(() => {
-    fetchSavedTodos();
+    fetchTodos();
   }, []);
+
+  useEffect(() => {
+    saveTodos(props.storageKey, props.todos);
+  }, [props.todos]);
 
   const updateText = (value: string) => {
     setTodoText(value);
@@ -60,14 +48,7 @@ export const TodoList: FC<TodoListProps> = props => {
   }
 
   const saveTodo = () => {
-    const newTodo: TodoType = {
-      id: Date.now().toString(),
-      text: todoText,
-      completed: false
-    };
-    props.addTodo(newTodo);
-    const updatedTodos = [...props.todos, newTodo];
-    saveTodos(updatedTodos);
+    props.addTodo(todoText);
     clearTodo();
   }
 
@@ -76,16 +57,11 @@ export const TodoList: FC<TodoListProps> = props => {
   }
 
   const deleteTodo = (deleteTodo: TodoType) => {
-    const newTodos = props.todos.filter(nTodo => {
-      return nTodo.id !== deleteTodo.id;
-    });
     props.deleteTodo(deleteTodo.id);
-    saveTodos(newTodos);
   }
 
   const clearAllTodos = () => {
     props.clearTodos();
-    saveTodos([]);
     setShowModal(false);
   }
 

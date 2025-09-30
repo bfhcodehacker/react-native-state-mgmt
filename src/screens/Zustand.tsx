@@ -18,13 +18,22 @@ export function ZustandScreen() {
     updateTodos(todos);
   };
 
+  const createTodo = (todoText: string) => {
+    const newTodo: TodoType = {
+      id: Date.now().toString(),
+      text: todoText,
+      completed: false
+    };
+    addTodo(newTodo);    
+  }
+
   return (
     <ImageBackground source={background} resizeMode='cover' style={MainStyles.background}>
       <TodoList
         todos={todos}
         updateTodos={saveTodos}
         clearTodos={clearTodos}
-        addTodo={addTodo}
+        addTodo={createTodo}
         toggleTodo={toggleTodo}
         deleteTodo={deleteTodo}
         storageKey={'zustand-todos'}

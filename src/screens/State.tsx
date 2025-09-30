@@ -32,7 +32,12 @@ export function StateScreen() {
     setTodos(newTodos);
   };
 
-  const addTodo = (newTodo: TodoType) => {
+  const addTodo = (todoText: string) => {
+    const newTodo: TodoType = {
+      id: Date.now().toString(),
+      text: todoText,
+      completed: false
+    };
     setTodos([...todos, newTodo]);
   };
 
