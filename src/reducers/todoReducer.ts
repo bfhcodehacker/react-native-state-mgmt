@@ -20,8 +20,13 @@ const todoSlice = createSlice({
       const todoId = action.payload;
       state.todos = state.todos.filter(todo => todo.id !== todoId);
     },
-    addTodo: (state, action: PayloadAction<TodoType>) => {
-      const todo = action.payload;
+    addTodo: (state, action: PayloadAction<string>) => {
+      const todoText = action.payload;
+      const todo: TodoType = {
+        id: Date.now().toString(),
+        text: todoText,
+        completed: false
+      };
       state.todos.push(todo);
     },
     toggleTodo: (state, action: PayloadAction<string>) => {

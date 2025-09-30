@@ -29,8 +29,8 @@ export function ReduxScreen() {
   const flipTodo = (id: string) => {
     dispatch(toggleTodo(id));
   }
-  const createTodo = (todo: TodoType) => {
-    dispatch(addTodo(todo));
+  const createTodo = (todoText: string) => {
+    dispatch(addTodo(todoText));
   }
 
   return (
